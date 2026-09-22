@@ -1,0 +1,250 @@
+{
+    "tharun_gk": {
+        "username": "tharun_gk",
+        "account_age_minutes": 30,
+        "followers_count": 5000,
+        "following_count": 5,
+        "posts_count": 25,
+        "devices": [
+            "phone_2"
+            
+        ],
+        "locations": [
+            "Hyderabad",
+            "Bengaluru"
+        ],
+        "username_history": [
+            "sakhib"
+        ]
+    },
+    "saqib_07": {
+        "username": "saqib_07",
+        "account_age_minutes": 8,
+        "followers_count": 80,
+        "following_count": 30,
+        "posts_count": 0,
+        "devices": [
+            "unknown_device"
+        ],
+        "locations": [
+            "Mumbai"
+        ],
+        "username_history": [
+            "priyanka",
+            "saqib_07_official",
+            "saqib_07"
+        ]
+    },
+    "suchitra_ai": {
+        "username": "suchitra_ai",
+        "account_age_minutes": 5000,
+        "followers_count": 25,
+        "following_count": 30,
+        "posts_count": 0,
+        "devices": [
+            "tablet_1"
+        ],
+        "locations": [
+            "Mumbai",
+            "Belagavi",
+            "Delhi"
+        ],
+        "username_history": [
+            "sakhib"
+        ]
+    },
+    "chetana_tech": {
+        "username": "chetana_tech",
+        "account_age_minutes": 1440,
+        "followers_count": 5000,
+        "following_count": 80,
+        "posts_count": 5,
+        "devices": [
+            "tablet_1"
+        ],
+        "locations": [
+            "Delhi"
+        ],
+        "username_history": [
+            "chetana_tech",
+            "priyanka"
+        ]
+    },
+    "priyanka_22": {
+        "username": "priyanka_22",
+        "account_age_minutes": 1440,
+        "followers_count": 25,
+        "following_count": 30,
+        "posts_count": 40,
+        "devices": [
+            "tablet_1",
+            "laptop_1",
+            "phone_1"
+        ],
+        "locations": [
+            "Belagavi",
+            "Hyderabad",
+            "Delhi"
+        ],
+        "username_history": [
+            "priyanka_22_official",
+            "random_name"
+        ]
+    },
+    "rahul_dev": {
+        "username": "rahul_dev",
+        "account_age_minutes": 1440,
+        "followers_count": 500,
+        "following_count": 5,
+        "posts_count": 5,
+        "devices": [
+            "unknown_device",
+            "laptop_1"
+        ],
+        "locations": [
+            "Mumbai"
+        ],
+        "username_history": [
+            "rahul_dev_official",
+            "rahul_dev",
+            "sakhib"
+        ]
+    },
+    "kiran_photos": {
+        "username": "kiran_photos",
+        "account_age_minutes": 60,
+        "followers_count": 80,
+        "following_count": 30,
+        "posts_count": 5,
+        "devices": [
+            "laptop_1",
+            "tablet_1",
+            "unknown_device"
+        ],
+        "locations": [
+            "Belagavi"
+        ],
+        "username_history": [
+            "kiran_photos_official",
+            "sakhib"
+        ]
+    },
+    "presidency_updates": {
+        "username": "presidency_updates",
+        "account_age_minutes": 5000,
+        "followers_count": 1200,
+        "following_count": 30,
+        "posts_count": 40,
+        "devices": [
+            "phone_1",
+            "phone_2"
+        ],
+        "locations": [
+            "Bengaluru"
+        ],
+        "username_history": [
+            "priyanka",
+            "presidency_updates_official",
+            "sakhib"
+        ]
+    },
+    "cid_karnataka": {
+        "username": "cid_karnataka",
+        "account_age_minutes": 1440,
+        "followers_count": 25,
+        "following_count": 45,
+        "posts_count": 25,
+        "devices": [
+            "phone_1",
+            "phone_2",
+            "unknown_device"
+        ],
+        "locations": [
+            "Hyderabad",
+            "Belagavi",
+            "Bengaluru"
+        ],
+        "username_history": [
+            "priyanka",
+            "cid_karnataka"
+        ]
+    },
+    "insta_support_fake": {
+        "username": "insta_support_fake",
+        "account_age_minutes": 60,
+        "followers_count": 25,
+        "following_count": 45,
+        "posts_count": 25,
+        "devices": [
+            "phone_1",
+            "tablet_1"
+        ],
+        "locations": [
+            "Mumbai"
+        ],
+        "username_history": [
+            "random_name",
+            "insta_support_fake_official",
+            "insta_support_fake"
+        ]
+    },
+    "m_sakhib": {
+        "username": "m_sakhib",
+        "account_age_minutes": 12,
+        "followers_count": 150,
+        "following_count": 5,
+        "posts_count": 5,
+        "devices": [
+            "phone_1",
+            "phone_2"
+        ],
+        "locations": [
+            "Hyderabad",
+            "Mumbai"
+        ],
+        "username_history": [
+            "sakhib"
+        ]
+    },
+    "user123": {
+        "username": "user123",
+        "account_age_minutes": 30,
+        "followers_count": 500,
+        "following_count": 5,
+        "posts_count": 2,
+        "devices": [
+            "laptop_1",
+            "phone_1"
+        ],
+        "locations": [
+            "Mumbai",
+            "Bengaluru",
+            "Belagavi"
+        ],
+        "username_history": [
+            "priyanka",
+            "sakhib",
+            "user123"
+        ]
+    },
+    "dark_user99": {
+        "username": "dark_user99",
+        "account_age_minutes": 30,
+        "followers_count": 1200,
+        "following_count": 150,
+        "posts_count": 0,
+        "devices": [
+            "phone_1"
+        ],
+        "locations": [
+            "Belagavi",
+            "Mumbai",
+            "Hyderabad"
+        ],
+        "username_history": [
+            "priyanka",
+            "sakhib",
+            "dark_user99_official"
+        ]
+    }
+}

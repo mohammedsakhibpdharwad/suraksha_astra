@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Suraksha-Astra Admin</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-950 text-white min-h-screen">
+
+<div class="max-w-6xl mx-auto p-6">
+
+  <div class="text-center mb-8">
+    <h1 class="text-4xl font-bold text-red-400">Suraksha-Astra Admin Panel</h1>
+    <p class="text-slate-300 mt-2">
+      Privacy-safe suspicious account alert dashboard
+    </p>
+  </div>
+
+  <div class="bg-slate-900 p-6 rounded-2xl border border-slate-700 mb-6">
+    <div class="flex gap-3 justify-center">
+      <button onclick="loadAlerts()"
+        class="bg-red-500 hover:bg-red-600 px-5 py-2 rounded font-bold">
+        Load Suspicious Alerts
+      </button>
+
+      <button onclick="clearAlerts()"
+        class="bg-slate-700 hover:bg-slate-800 px-5 py-2 rounded font-bold">
+        Clear Alerts
+      </button>
+
+      <a href="index.html"
+        class="bg-green-500 hover:bg-green-600 px-5 py-2 rounded font-bold">
+        Back to User Dashboard
+      </a>
+    </div>
+  </div>
+
+  <div id="summaryBox" class="grid md:grid-cols-3 gap-4 mb-6"></div>
+
+  <div id="alertsBox"></div>
+
+</div>
+
+<script>
+const API = "http://127.0.0.1:8000";
+
+async function loadAlerts() {
+  const alertsBox = document.getElementById("alertsBox");
+  const summaryBox = document.getElementById("summaryBox");
+
+  alertsBox.innerHTML = `<p class="text-center text-slate-300">Loading alerts...</p>`;
+  summaryBox.innerHTML = "";
+
+  try {
+    const res = await fetch(`${API}/admin-alerts`);
+    const data = await res.json();
+
+    const alerts = data.alerts || [];
+
+    const blockCount = alerts.filter(a => a.action === "BLOCK").length;
+    const limitCount = alerts.filter(a => a.action === "LIMIT").length;
+
+    summaryBox.innerHTML = `
+      <div class="bg-slate-900 p-5 rounded-xl border border-slate-700 text-center">
+        <h3 class="text-slate-400">Total Alerts</h3>
+        <p class="text-3xl font-bold text-white">${data.total_alerts}</p>
+      </div>
+
+      <div class="bg-red-950/30 p-5 rounded-xl border border-red-500 text-center">
+        <h3 class="text-red-300">Block Alerts</h3>
+        <p class="text-3xl font-bold text-red-400">${blockCount}</p>
+      </div>
+
+      <div class="bg-yellow-950/30 p-5 rounded-xl border border-yellow-500 text-center">
+        <h3 class="text-yellow-300">Limit Alerts</h3>
+        <p class="text-3xl font-bold text-yellow-400">${limitCount}</p>
+      </div>
+    `;
+
+    if (alerts.length === 0) {
+      alertsBox.innerHTML = `
+        <div class="bg-slate-900 p-6 rounded-2xl border border-green-500 text-center">
+          <h2 class="text-2xl font-bold text-green-400">No suspicious alerts found</h2>
+          <p class="text-slate-300 mt-2">
+            Suspicious or high-risk accounts will appear here.
+          </p>
+        </div>
+      `;
+      return;
+    }
+
+    alertsBox.innerHTML = alerts.map(alert => {
+      const isBlock = alert.action === "BLOCK";
+
+      const cardStyle = isBlock
+        ? "border-red-500 bg-red-950/30"
+        : "border-yellow-500 bg-yellow-950/30";
+
+      const textColor = isBlock ? "text-red-400" : "text-yellow-400";
+
+      const reasons = alert.reasons && alert.reasons.length
+        ? alert.reasons.map(r => `<li>${r}</li>`).join("")
+        : "<li>No reason provided</li>";
+
+      return `
+        <div class="p-5 rounded-2xl border ${cardStyle} mb-4">
+          <div class="flex justify-between items-center mb-3">
+            <h2 class="text-2xl font-bold ${textColor}">
+              ${isBlock ? "🚫 BLOCK Recommended" : "⚠️ LIMIT / Review Recommended"}
+            </h2>
+
+            <span class="text-sm text-slate-400">
+              ${alert.time}
+            </span>
+          </div>
+
+          <p><b>Username:</b> ${alert.username}</p>
+          <p><b>Risk Score:</b> ${alert.risk_score}</p>
+          <p><b>Admin Action:</b> ${alert.action}</p>
+
+          <h3 class="font-bold mt-4">Reasons:</h3>
+          <ul class="list-disc ml-5 text-slate-300">
+            ${reasons}
+          </ul>
+
+          <p class="text-slate-400 mt-4 text-sm">
+            Privacy note: Only risk summary and reasons are shown. Full user data is not exposed.
+          </p>
+        </div>
+      `;
+    }).join("");
+
+  } catch (error) {
+    alertsBox.innerHTML = `
+      <div class="bg-red-950/30 border border-red-500 p-5 rounded-xl">
+        <p class="text-red-400">
+          Error loading alerts. Make sure backend is running.
+        </p>
+      </div>
+    `;
+  }
+}
+
+async function clearAlerts() {
+  await fetch(`${API}/clear-admin-alerts`, { method: "POST" });
+  await loadAlerts();
+}
+
+loadAlerts();
+</script>
+
+</body>
+</html>
